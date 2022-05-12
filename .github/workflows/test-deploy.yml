@@ -25,6 +25,8 @@ jobs:
           ls
           whoami
           pwd
+          which lpm
+          which liquibase
 
       - name: Validate
         run: liquibase validate --log-level info
