@@ -21,8 +21,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Dependencies
-        run: |
-          lpm install
+        run: lpm add launchdarkly
 
       - name: Validate
         run: liquibase validate --log-level info
