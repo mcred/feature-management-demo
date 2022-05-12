@@ -1,0 +1,25 @@
+name: Deploy Testing Database Changes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-database-changes:
+    runs-on: ubuntu-latest
+    container: liquibase/liquibase:latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: lpm install
+
+      - name: Verify
+        run: liquibase verify
+        env:
+          LIQUIBASE_PRO_LICENSE_KEY:  ${{ secrets.PRO_KEY }}
+          LIQUIBASE_URL:  ${{ secrets.DEMO_TEST_URL }}
+          LIQUIBASE_USERNAME:  ${{ secrets.DEMO_TEST_USERNAME }}
+          LIQUIBASE_PASSWORD:  ${{ secrets.DEMO_TEST_PASSWORD }}
+          LIQUIBASE_CHANGELOG_FILE: "changelogs/changes.yml"
+          LIQUIBASE_DRIVER: "org.postgresql.Driver"
