@@ -11,11 +11,11 @@ jobs:
       image: liquibase/liquibase:latest
       env:
         LIQUIBASE_PRO_LICENSE_KEY:  ${{ secrets.PRO_KEY }}
-        LIQUIBASE_URL:  ${{ secrets.DEMO_TEST_URL }}
-        LIQUIBASE_USERNAME:  ${{ secrets.DEMO_TEST_USERNAME }}
-        LIQUIBASE_PASSWORD:  ${{ secrets.DEMO_TEST_PASSWORD }}
-        LIQUIBASE_CHANGELOG_FILE: "changelogs/changes.yml"
-        LIQUIBASE_DRIVER: "org.postgresql.Driver"
+        LIQUIBASE_COMMAND_URL:  ${{ secrets.DEMO_TEST_URL }}
+        LIQUIBASE_COMMAND_USERNAME:  ${{ secrets.DEMO_TEST_USERNAME }}
+        LIQUIBASE_COMMAND_PASSWORD:  ${{ secrets.DEMO_TEST_PASSWORD }}
+        LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelogs/changes.yml"
+        LIQUIBASE_COMMAND_DRIVER: "org.postgresql.Driver"
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
