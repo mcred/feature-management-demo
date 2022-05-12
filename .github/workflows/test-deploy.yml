@@ -6,7 +6,15 @@ on:
 jobs:
   deploy-database-changes:
     runs-on: ubuntu-latest
-    container: liquibase/liquibase:latest
+    container:
+      image: liquibase/liquibase:latest
+      env:
+        LIQUIBASE_PRO_LICENSE_KEY:  ${{ secrets.PRO_KEY }}
+        LIQUIBASE_URL:  ${{ secrets.DEMO_TEST_URL }}
+        LIQUIBASE_USERNAME:  ${{ secrets.DEMO_TEST_USERNAME }}
+        LIQUIBASE_PASSWORD:  ${{ secrets.DEMO_TEST_PASSWORD }}
+        LIQUIBASE_CHANGELOG_FILE: "changelogs/changes.yml"
+        LIQUIBASE_DRIVER: "org.postgresql.Driver"
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -16,10 +24,3 @@ jobs:
 
       - name: Verify
         run: liquibase verify
-        env:
-          LIQUIBASE_PRO_LICENSE_KEY:  ${{ secrets.PRO_KEY }}
-          LIQUIBASE_URL:  ${{ secrets.DEMO_TEST_URL }}
-          LIQUIBASE_USERNAME:  ${{ secrets.DEMO_TEST_USERNAME }}
-          LIQUIBASE_PASSWORD:  ${{ secrets.DEMO_TEST_PASSWORD }}
-          LIQUIBASE_CHANGELOG_FILE: "changelogs/changes.yml"
-          LIQUIBASE_DRIVER: "org.postgresql.Driver"
