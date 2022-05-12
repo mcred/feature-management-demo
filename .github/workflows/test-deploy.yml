@@ -24,4 +24,4 @@ jobs:
         run: ls
 
       - name: Verify
-        run: liquibase verify
+        run: liquibase validate
