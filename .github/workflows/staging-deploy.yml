@@ -25,4 +25,4 @@ jobs:
         run: lpm update && lpm add launchdarkly
 
       - name: Update
-        run: liquibase update
+        run: liquibase update --log-level SEVERE
