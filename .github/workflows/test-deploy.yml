@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          lpm
+          lpm install
 
       - name: Validate
         run: liquibase validate --log-level info
