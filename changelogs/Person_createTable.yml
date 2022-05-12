@@ -1,10 +1,10 @@
 databaseChangeLog:
-  -  preConditions:
-     - onFail: WARN
-     - flagrFeatureFlag:
-        enabledFlags: person-feature
 
   -  changeSet:
+       preConditions:
+         - onFail: CONTINUE
+         - launchDarklyFeatureFlag:
+             enabledFlags: person-feature
        id:  1
        author:  dsmart
        changes:

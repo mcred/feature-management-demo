@@ -1,4 +1,4 @@
-name: Deploy Testing Database Changes
+name: Deploy Staging Database Changes
 
 on:
 #  push:
@@ -11,10 +11,10 @@ jobs:
       image: liquibase/liquibase:latest
       env:
         LIQUIBASE_PRO_LICENSE_KEY:  ${{ secrets.PRO_KEY }}
-        LIQUIBASE_LAUNCH_DARKLY_SDK_KEY: ${{ secrets.LAUNCHDARKLY_SDK_DEV_KEY }}
-        LIQUIBASE_COMMAND_URL:  ${{ secrets.DEMO_TEST_URL }}
-        LIQUIBASE_COMMAND_USERNAME:  ${{ secrets.DEMO_TEST_USERNAME }}
-        LIQUIBASE_COMMAND_PASSWORD:  ${{ secrets.DEMO_TEST_PASSWORD }}
+        LIQUIBASE_LAUNCH_DARKLY_SDK_KEY: ${{ secrets.LAUNCHDARKLY_SDK_STAGING_KEY }}
+        LIQUIBASE_COMMAND_URL:  ${{ secrets.DEMO_STAGING_URL }}
+        LIQUIBASE_COMMAND_USERNAME:  ${{ secrets.DEMO_STAGING_USERNAME }}
+        LIQUIBASE_COMMAND_PASSWORD:  ${{ secrets.DEMO_STAGING_PASSWORD }}
         LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelogs/changes.yml"
         LIQUIBASE_COMMAND_DRIVER: "org.postgresql.Driver"
     steps:
