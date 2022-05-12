@@ -1,0 +1,25 @@
+databaseChangeLog:
+  -  preConditions:
+     -  flagrFeatureFlag:
+          enabledFlags: person-feature
+
+  -  changeSet:
+       id:  1
+       author:  dsmart
+       changes:
+         -  createTable:
+              tableName:  person
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  fullname
+                     type:  varchar(50)
+                -  column:
+                     name:  state
+                     type:  char(2)

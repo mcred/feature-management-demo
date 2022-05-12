@@ -1,0 +1,10 @@
+{
+ "dependencies": [
+  {
+   "flagr": "v0.0.1"
+  },
+  {
+   "launchdarkly": "0.0.1"
+  }
+ ]
+}

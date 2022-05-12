@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+    - file: changelogs/createTable_Person.yml
