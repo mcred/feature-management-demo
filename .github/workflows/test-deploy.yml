@@ -24,4 +24,4 @@ jobs:
         run: ls
 
       - name: Verify
-        run: liquibase validate
+        run: liquibase validate --log-level info
