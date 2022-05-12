@@ -1,0 +1,19 @@
+databaseChangeLog:
+  -  preConditions:
+     - onFail: WARN
+     - flagrFeatureFlag:
+         enabledFlags: person-expand
+
+  -  changeSet:
+       id:  2
+       author:  dsmart
+       changes:
+         - addColumn:
+             tableName: person
+             columns:
+               - column:
+                   name: firstname
+                   type: varchar(50)
+               - column:
+                   name: lastname
+                   type: varchar(50)

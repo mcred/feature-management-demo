@@ -1,0 +1,14 @@
+databaseChangeLog:
+  -  preConditions:
+     - onFail: WARN
+     - flagrFeatureFlag:
+         enabledFlags: person-contract
+
+  -  changeSet:
+       id:  3
+       author:  dsmart
+       changes:
+         - dropColumn:
+             columnName:  fullname
+             schemaName:  public
+             tableName:  person

@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
-    - file: changelogs/createTable_Person.yml
+    - file: changelogs/Person_createTable.yml
+  - include:
+    - file: changelogs/Person_addSplitName.yml
+  - include:
+    - file: changelogs/Person_removeFullName.yml

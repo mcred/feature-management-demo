@@ -1,7 +1,8 @@
 databaseChangeLog:
   -  preConditions:
-     -  flagrFeatureFlag:
-          enabledFlags: person-feature
+     - onFail: WARN
+     - flagrFeatureFlag:
+        enabledFlags: person-feature
 
   -  changeSet:
        id:  1
