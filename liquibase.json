@@ -5,6 +5,9 @@
   },
   {
    "launchdarkly": "0.0.1"
+  },
+  {
+   "hashicorp-vault": "0.0.4"
   }
  ]
 }
